@@ -111,3 +111,15 @@ generateCredSet_conditional <- function(searchVariants,distFromVariant,outFile){
   
 #Export as text files
 system.time(generateCredSet_conditional(myVariants,1e6,myOutfile))
+
+##To run, locally
+##Create time stamp
+#myTime=gsub(x=Sys.time(),"-|:|[[:space:]]","_")
+#system(paste0("rm -r my_temp_",myTime))
+#system(paste0("mkdir my_temp_",myTime))
+##Split into chunks
+#lapply(1:length(myList),function(x) write.table(myList[[x]],paste0("my_temp_",myTime,"/target_variant_analysis.",names(myList)[x],".txt"),row.names=F))
+##Run the script to perform regional context analysis
+##Test in background
+#for(i in 1:8){system(paste0("Rscript generateCredSetLOF_conditional_whole_signal.R ","my_temp_",myTime,"/target_variant_analysis.",i,".txt ","my_temp_",myTime,"/target_regional_results.set",i," &"))}  
+
